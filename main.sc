@@ -1,4 +1,5 @@
 SCRIPT_NAME main
+DO_FADE 0 FADE_OUT
 
 CONST_INT DATE_IN_PROGRESS 		1
 CONST_INT MEETING_IN_PROGRESS 	20
@@ -15,7 +16,7 @@ VAR_INT iDateReport iAgentFlags iPhoneState	iCaller
 VAR_INT gf_game_timer Players_Group
 VAR_INT iTerminateAllAmbience iAreaCode iStoredAreaCode
 iAreaCode = 0
-LOAD_SCENE 0.0 0.0 0.0
+LOAD_SCENE 21.0 -43.9 14.84 
 
 
 flag_player_on_mission = 0
@@ -27,10 +28,11 @@ SET_PROGRESS_TOTAL 0
 SET_MISSION_RESPECT_TOTAL 0
 
 //CREATE PLAYER
-CREATE_PLAYER 0 0.0 0.0 5.0 player1
+CREATE_PLAYER 0 21.0 -43.9 14.84 player1
 GET_PLAYER_CHAR player1 scplayer
 GET_PLAYER_GROUP player1 player_group
 
+SET_CHAR_HEADING scplayer 180.0
 
 GIVE_PLAYER_CLOTHES_OUTSIDE_SHOP player1 UPPR9B uppr9 0
 GIVE_PLAYER_CLOTHES_OUTSIDE_SHOP player1 PLAYER_FACE HEAD 1 
@@ -38,6 +40,7 @@ GIVE_PLAYER_CLOTHES_OUTSIDE_SHOP player1 LOWR6C LOWR6 2
 GIVE_PLAYER_CLOTHES_OUTSIDE_SHOP player1 FEET6A FEET6 3 
 BUILD_PLAYER_MODEL player1
 
+ 
 
 REQUEST_MODEL CAMERA 
 GIVE_WEAPON_TO_CHAR scplayer WEAPONTYPE_CAMERA 10000
@@ -53,12 +56,25 @@ SHUT_CHAR_UP scplayer true
 
 SET_PLAYER_CONTROL player1 ON
 GET_PLAYER_GROUP Player1 Players_Group
-DO_FADE 500 FADE_IN
+
 
 LOAD_AND_LAUNCH_MISSION initial.sc
+
+
+DO_FADE 0 FADE_OUT
+WAIT 0
+WAIT 0
+SWITCH_WORLD_PROCESSING OFF //TEST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+SET_FADING_COLOUR 0 0 0
+WAIT 2000 //Wait until keys are initialised	//TEST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SWITCH_WORLD_PROCESSING ON //TEST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+//CREATE_CAR_GENERATOR 0.0,0.0,0.0,0,-1,-1,-1,1,0,0,50,10000, cargen
 wait 0
-
-
+LOAD_SCENE 21.0 -43.9 14.84 
+DO_FADE 500 FADE_IN
+//PRINT_BIG ( BHI ) 3000 2 
 // *************************************VARIABLES*******************************************
 //GENERAL
 VAR_INT button_pressed controlmode mission_trigger_wait_time flag_cell_nation	game_timer
