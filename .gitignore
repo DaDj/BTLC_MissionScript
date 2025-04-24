@@ -28,3 +28,8 @@ unused_sound_effects_without_numbers.txt
 variable_info.txt
 variable_usage.txt
 extrainfo.txt
+streamed/
+streamed/aaa.scm
+streamed/camera.scm
+streamed/gates_script.scm
+streamed/player_parachute.scm
